@@ -1,0 +1,22 @@
+ssh 3.144.109.219 -l ubuntu -i levelup_key
+
+******************************************MiniKube installation**************************************************************
+- sudo apt-get update && \
+    sudo apt-get install docker.io -y
+-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+ sudo install minikube-linux-amd64 /usr/local/bin/minikube
+ 
+- kubeCtl : curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+  sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+  
+  
+  crictl : VERSION="v1.24.1"
+curl -L https://github.com/kubernetes-sigs/cri-tools/releases/download/$VERSION/crictl-${VERSION}-linux-amd64.tar.gz --output crictl-${VERSION}-linux-amd64.tar.gz
+sudo tar zxvf crictl-$VERSION-linux-amd64.tar.gz -C /usr/local/bin
+rm -f crictl-$VERSION-linux-amd64.tar.gz
+  
+- cridocker : https://computingforgeeks.com/install-mirantis-cri-dockerd-as-docker-engine-shim-for-kubernetes/
+- sudo apt install conntrack
+/****************************************************************************************************************************/
+-helm install : https://helm.sh/docs/intro/install/
+- prometheus install : https://blog.marcnuri.com/prometheus-grafana-setup-minikube
