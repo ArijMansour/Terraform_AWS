@@ -72,7 +72,7 @@ resource "aws_launch_configuration" "launch_config_webserver" {
   name   = "launch_config_webserver"
   image_id      = lookup(var.AMIS, var.AWS_REGION)
   instance_type = var.INSTANCE_TYPE
-  user_data = "#!/bin/bash\napt-get update\napt-get -y install net-tools nginx\nMYIP=`ifconfig | grep -E '(inet 10)|(addr:10)' | awk '{ print $2 }' | cut -d ':' -f2`\necho 'Hello \nmohamed ya bhim: '$MYIP > /var/www/html/index.html"
+  user_data = "#!/bin/bash\napt-get update\napt-get -y install net-tools nginx\nMYIP=`ifconfig | grep -E '(inet 10)|(addr:10)' | awk '{ print $2 }' | cut -d ':' -f2`\necho 'hi ip \: '$MYIP > /var/www/html/index.html"
   security_groups = [aws_security_group.levelup_webservers.id]
   key_name = aws_key_pair.levelup_key.key_name
   
